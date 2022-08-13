@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export type Image = {
-    id: number
-    url: string
+export interface Image {
+    id: number | null
+    url: string | null
 }
 
 interface InitState {
