@@ -1,10 +1,16 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.scss'
+import HomePage from './pages/HomePage/HomePage'
 
 function App() {
     return (
         <div className="App">
-            <div>1</div>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </div>
     )
 }
