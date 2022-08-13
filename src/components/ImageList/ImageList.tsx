@@ -8,16 +8,19 @@ import s from './ImageList.module.scss'
 import { Image } from '../../store/slices/userSlice'
 import Card from '../Card/Card'
 import userDataAPI from '../../api/userDataAPI'
+import { useAppDispatch } from '../../store/hooks/hooks'
 
 interface ImageListProps {
     images: Image[]
 }
 
 function ImageList({ images }: ImageListProps) {
+    const dispatch = useAppDispatch()
     const getImgData = async (imageId: number) => {
         try {
             const data = await userDataAPI.getImageData(imageId)
-            console.dir(data)
+            console.dir(data) // TODO !!!!!!!!
+            dispatch(setImageData())
         } catch (error) {
             console.log(error)
             alert('Данные не получены')
