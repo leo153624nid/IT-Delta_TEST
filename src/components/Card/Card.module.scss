@@ -16,6 +16,7 @@
     flex-grow: 1;
     &:hover {
         animation: anim-shadow 0.4s ease-in-out forwards;
+        cursor: pointer;
     }
 }
 
