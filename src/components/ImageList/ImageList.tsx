@@ -1,20 +1,23 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import s from './ImageList.module.scss'
+import { Image } from '../../store/slices/userSlice'
 
-// interface FormProps {
-//     title: string
-//     emailMemo: string
-//     passMemo: string
-//     // eslint-disable-next-line no-unused-vars
-//     handleClick: (email: string, pass: string, memo: boolean) => void
-// }
+interface ImageListProps {
+    images: Image[]
+}
 
-function ImageList(images) {
+function ImageList({ images }: ImageListProps) {
+    const imagesList = images.map((item) => (
+        <li key={item.id}>
+            <img src={item.url} alt="" />
+        </li>
+    ))
     return (
-        <div>
-            <div>1</div>
-            <div>2</div>
+        <div className={s.imageList}>
+            <ul>{imagesList}</ul>
         </div>
     )
 }
