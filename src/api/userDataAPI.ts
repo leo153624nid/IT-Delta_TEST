@@ -6,8 +6,14 @@ const axiosInstance = axios.create({
 
 const userDataAPI = {
     // Получить данные пользователя
-    getUserData(userId: string) {
-        return axiosInstance.get(`${userId}`).then((response) => response.data)
+    getUserData() {
+        return axiosInstance.get(``).then((response) => response.data)
+    },
+    // Получить данные фотографии
+    getImageData(imageId: number) {
+        return axiosInstance
+            .get(`/${imageId}`)
+            .then((response) => response.data)
     },
     // Обновить или добавить машину
     // patchUserCar(userId, car, index) {
