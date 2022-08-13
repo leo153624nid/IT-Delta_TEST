@@ -1,16 +1,22 @@
-// $color_green: #57b846;
-// $color_grey: #666666;
-// $color_light_grey: #999999;
-// $color_dark_grey: #333333;
-// $color_beige: #e6e6e6;
-// $color_white: #fff;
-// $color_red: #c80000;
+// colors
+$color_grey400: #9ca3af;
+$color_grey500: #6b7280;
+$color_grey700: #374151;
+$color_grey900: #111827;
+$color_white: #ffffff;
 
 // $font_size_norm: 15px;
 // $font_size_large: 24px;
 // $font_size_min: 12px;
 
-$max_width_container: 1358px;
+// widths % breakpoints
+$min_width: 320;
+$max_width: 1920;
+$max_width_container: 1358;
+$md1: $max_width_container + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
 
 // высота инпутов и кнопок
 // $btn_height_norm: 50px;
