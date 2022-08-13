@@ -1,20 +1,23 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import React from 'react'
 import Header from '../../components/Header/Header'
 import ImageList from '../../components/ImageList/ImageList'
-import { useAppDispatch } from '../../store/hooks/hooks'
+import { useAppSelector } from '../../store/hooks/hooks'
 
 import s from './HomePage.module.scss'
 
 function HomePage() {
-    const dispatch = useAppDispatch()
+    const { userName, images } = useAppSelector((state) => state.user)
 
-    const onClick = () => {}
-    return (
+    return userName ? (
         <div className={s.homePage}>
             <Header userName={userName} />
 
-            <ImageList />
+            <ImageList images={images} />
         </div>
+    ) : (
+        <div>LOADING...</div>
     )
 }
 
