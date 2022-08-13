@@ -3,6 +3,8 @@ import React from 'react'
 import s from './Header.module.scss'
 import banner from '../../img/banner.svg'
 import avatar from '../../img/avatar.svg'
+import email from '../../img/email.svg'
+import phone from '../../img/phone.svg'
 
 interface HeaderProps {
     userName: string
@@ -10,27 +12,45 @@ interface HeaderProps {
 
 function Header({ userName }: HeaderProps) {
     return (
-        <header>
+        <header className={s.header}>
             <div className={s.banner}>
                 <img src={banner} alt="banner" />
             </div>
 
-            <div className={s.user}>
+            <div className={s.content}>
                 <div className={s.avatar}>
                     <img src={avatar} alt="avatar" />
                 </div>
 
                 <div className={s.userData}>
-                    <div className={s.userName}>{userName}</div>
+                    <div className={s.userName}>
+                        <span>{userName}</span>
+                    </div>
 
                     <div className={s.userButtons}>
-                        <button type="button" className={s.message}>
-                            Message
-                        </button>
+                        <div className={s.btn}>
+                            <div className={s.icon}>
+                                <img
+                                    src={email}
+                                    alt="email"
+                                    className={s.email}
+                                />
+                            </div>
 
-                        <button type="button" className={s.call}>
-                            Call
-                        </button>
+                            <span className={s.text}>Message</span>
+                        </div>
+
+                        <div className={s.btn}>
+                            <div className={s.icon}>
+                                <img
+                                    src={phone}
+                                    alt="phone"
+                                    className={s.phone}
+                                />
+                            </div>
+
+                            <span className={s.text}>Call</span>
+                        </div>
                     </div>
                 </div>
             </div>
