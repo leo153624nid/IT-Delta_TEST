@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react'
+import React from 'react'
 import s from './Header.module.scss'
 import banner from '../../img/banner.svg'
+import avatar from '../../img/avatar.svg'
 
 // interface FormProps {
 //     title: string
@@ -11,7 +12,7 @@ import banner from '../../img/banner.svg'
 //     handleClick: (email: string, pass: string, memo: boolean) => void
 // }
 
-function Header() {
+function Header({ userName }) {
     return (
         <header>
             <div className={s.banner}>
@@ -19,10 +20,12 @@ function Header() {
             </div>
 
             <div className={s.user}>
-                <div>avatar</div>
+                <div className={s.avatar}>
+                    <img src={avatar} alt="avatar" />
+                </div>
 
                 <div className={s.userData}>
-                    <div className={s.userName}>userName</div>
+                    <div className={s.userName}>{userName}</div>
 
                     <div className={s.userButtons}>
                         <button type="button" className={s.message}>
