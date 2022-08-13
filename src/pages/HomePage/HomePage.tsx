@@ -1,7 +1,8 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import Header from '../../components/Header/Header'
+import ImageList from '../../components/ImageList/ImageList'
 import { useAppDispatch } from '../../store/hooks/hooks'
-import { removeUser } from '../../store/slices/userSlice'
+
 import s from './HomePage.module.scss'
 
 function HomePage() {
@@ -9,13 +10,10 @@ function HomePage() {
 
     const onClick = () => {}
     return (
-        <div>
-            <h1>Welcome, {email}</h1>
-            <div className={s.wrapBtn}>
-                <button type="button" onClick={onClick} className={s.btn}>
-                    Log out from {email}
-                </button>
-            </div>
+        <div className={s.homePage}>
+            <Header />
+
+            <ImageList />
         </div>
     )
 }
