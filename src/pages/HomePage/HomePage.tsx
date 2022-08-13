@@ -17,7 +17,9 @@ function HomePage() {
         </div>
     ) : (
         <div className={s.homePage}>
-            <div className={s.loading}>LOADING...</div>
+            <div className={s.loading}>
+                <span>LOADING...</span>
+            </div>
         </div>
     )
 }
