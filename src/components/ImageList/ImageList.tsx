@@ -4,6 +4,7 @@
 import React from 'react'
 import s from './ImageList.module.scss'
 import { Image } from '../../store/slices/userSlice'
+import Card from '../Card/Card'
 
 interface ImageListProps {
     images: Image[]
@@ -12,7 +13,7 @@ interface ImageListProps {
 function ImageList({ images }: ImageListProps) {
     const imagesList = images.map((item) => (
         <li key={item.id}>
-            <img src={item.url} alt="" />
+            <Card url={item.url} id={item.id} />
         </li>
     ))
     return (
