@@ -1,16 +1,17 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-// interface InitState {
-//     email: string | null
-//     token: string | null
-//     id: string | null
-// }
+interface InitState {
+    email: string | null
+    token: string | null
+    id: string | null
+}
 
-// const initialState: InitState = {
-//     email: null,
-//     token: null,
-//     id: null,
-// }
+const initialState: InitState = {
+    email: null,
+    token: null,
+    id: null,
+}
 
 const userSlice = createSlice({
     name: 'user',
