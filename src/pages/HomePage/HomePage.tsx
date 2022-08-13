@@ -11,7 +11,7 @@ function HomePage() {
     const onClick = () => {}
     return (
         <div className={s.homePage}>
-            <Header />
+            <Header userName={userName} />
 
             <ImageList />
         </div>
