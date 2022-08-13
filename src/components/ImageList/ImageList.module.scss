@@ -1,15 +1,14 @@
 @import '../../common/stylesConst.scss';
 
 .imageList {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 0px;
     gap: 32px;
 
     position: relative;
     width: 1358px;
-    height: 520px;
-    // height: 100%;
+    // height: 520px;
+    // height: 100vh;
     margin-top: 46px;
 }
