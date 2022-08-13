@@ -4,15 +4,11 @@ import s from './Header.module.scss'
 import banner from '../../img/banner.svg'
 import avatar from '../../img/avatar.svg'
 
-// interface FormProps {
-//     title: string
-//     emailMemo: string
-//     passMemo: string
-//     // eslint-disable-next-line no-unused-vars
-//     handleClick: (email: string, pass: string, memo: boolean) => void
-// }
+interface HeaderProps {
+    userName: string
+}
 
-function Header({ userName }) {
+function Header({ userName }: HeaderProps) {
     return (
         <header>
             <div className={s.banner}>
@@ -31,6 +27,7 @@ function Header({ userName }) {
                         <button type="button" className={s.message}>
                             Message
                         </button>
+
                         <button type="button" className={s.call}>
                             Call
                         </button>
