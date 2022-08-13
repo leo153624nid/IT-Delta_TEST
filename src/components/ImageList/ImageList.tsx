@@ -12,15 +12,11 @@ interface ImageListProps {
 
 function ImageList({ images }: ImageListProps) {
     const imagesList = images.map((item) => (
-        <li key={item.id}>
+        <div key={item.id}>
             <Card url={item.url} id={item.id} />
-        </li>
-    ))
-    return (
-        <div className={s.imageList}>
-            <ul>{imagesList}</ul>
         </div>
-    )
+    ))
+    return <div className={s.imageList}>{imagesList}</div>
 }
 
 export default ImageList
