@@ -2,17 +2,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface Image {
-    id: number | null
-    url: string | null
+    id: number
+    url: string
 }
 
 interface InitState {
-    userName: string | null
+    userName: string
     images: Image[]
 }
 
 const initialState: InitState = {
-    userName: null,
+    userName: '',
     images: [],
 }
 
@@ -25,7 +25,7 @@ const userSlice = createSlice({
             state.images = [...action.payload.images]
         },
         removeUser(state) {
-            state.userName = null
+            state.userName = ''
             state.images = []
         },
     },
