@@ -5,9 +5,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Image } from './userSlice'
 
 export interface Comment {
-    id: number | null
-    text: string | null
-    date: number | null
+    id: number
+    text: string
+    date: number
 }
 
 export interface ImageData extends Image {
@@ -20,8 +20,8 @@ interface InitState {
 
 const initialState: InitState = {
     imageData: {
-        id: null,
-        url: null,
+        id: 0,
+        url: '',
         comments: [],
     },
 }
