@@ -1,0 +1,15 @@
+@import '../../common/stylesConst.scss';
+
+.imageList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+
+    position: relative;
+    width: 1358px;
+    height: 520px;
+    // height: 100%;
+    margin-top: 46px;
+}
