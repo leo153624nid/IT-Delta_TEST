@@ -11,8 +11,13 @@ interface CardProps {
 function Card({ url, id }: CardProps) {
     return (
         <div className={s.card}>
-            <img src={url} alt="" />
-            <span>id: {id}</span>
+            <img src={url} alt="" className={s.img} />
+
+            <div className={s.details}>
+                <div className={s.tittle}>id: {id}</div>
+
+                <div className={s.supportText}>none</div>
+            </div>
         </div>
     )
 }
