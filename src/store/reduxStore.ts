@@ -3,9 +3,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 import userReducer from './slices/userSlice'
+import imageReducer from './slices/imgSlice'
 
 const store = configureStore({
-    reducer: { user: userReducer },
+    reducer: { user: userReducer, image: imageReducer },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({}).concat(logger),
 })
