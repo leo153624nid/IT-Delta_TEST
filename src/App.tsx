@@ -11,6 +11,7 @@ import { setUser } from './store/slices/userSlice'
 function App() {
     const dispatch = useAppDispatch()
 
+    // Получаем данные при загрузке страницы
     useEffect(() => {
         // Т.к. в задании не предполагается изменение или получение user'a,
         // то передается пустая строка вместо userId
@@ -22,7 +23,7 @@ function App() {
                 })
             )
         })
-    }, [])
+    }, [dispatch])
     return (
         <div className={s.App}>
             <Routes>
