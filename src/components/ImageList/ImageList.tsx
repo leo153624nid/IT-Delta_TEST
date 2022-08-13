@@ -12,7 +12,7 @@ interface ImageListProps {
 
 function ImageList({ images }: ImageListProps) {
     const imagesList = images.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className={s.card}>
             <Card url={item.url} id={item.id} />
         </div>
     ))
