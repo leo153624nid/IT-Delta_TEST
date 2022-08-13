@@ -1,6 +1,18 @@
 @import '../../common/stylesConst.scss';
 
 .homePage {
+    background: $color_backgrond;
+    width: 100%;
+    height: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    background: $color_backgrond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 // .wrapBtn {
