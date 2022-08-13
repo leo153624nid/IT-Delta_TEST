@@ -9,6 +9,7 @@ import { Image } from '../../store/slices/userSlice'
 import Card from '../Card/Card'
 import userDataAPI from '../../api/userDataAPI'
 import { useAppDispatch } from '../../store/hooks/hooks'
+import { setImageData } from '../../store/slices/imgSlice'
 
 interface ImageListProps {
     images: Image[]
@@ -16,11 +17,21 @@ interface ImageListProps {
 
 function ImageList({ images }: ImageListProps) {
     const dispatch = useAppDispatch()
+
+    // Получаем данные выбранной фотографии
     const getImgData = async (imageId: number) => {
         try {
             const data = await userDataAPI.getImageData(imageId)
-            console.dir(data) // TODO !!!!!!!!
-            dispatch(setImageData())
+
+            dispatch(
+                setImageData({
+                    imageData: {
+                        id: imageId,
+                        url: data.url,
+                        comments: [...data.comments],
+                    },
+                })
+            )
         } catch (error) {
             console.log(error)
             alert('Данные не получены')
