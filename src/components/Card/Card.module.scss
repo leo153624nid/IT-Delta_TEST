@@ -10,15 +10,19 @@
     width: 431.33px;
     height: 244px;
 
-    /* focus:ring-2/focus:ring-inset/focus:ring-indigo-500 */ // TODO !!!!!
-    // box-shadow: inset 0px 0px 0px 2px #6366f1;
-
     /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 1;
-    :hover {
-        box-shadow: inset 0px 0px 0px 2px #6366f1;
+    &:hover {
+        animation: anim-shadow 0.4s ease-in-out forwards;
+    }
+}
+
+@keyframes anim-shadow {
+    to {
+        box-shadow: inset 0px 0px 70px 25px #6366f1;
+        border-radius: 6px;
     }
 }
 
