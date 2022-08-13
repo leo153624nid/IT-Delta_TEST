@@ -10,7 +10,7 @@ import s from './ImageList.module.scss'
 //     handleClick: (email: string, pass: string, memo: boolean) => void
 // }
 
-function ImageList() {
+function ImageList(images) {
     return (
         <div>
             <div>1</div>
