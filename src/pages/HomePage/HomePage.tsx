@@ -16,7 +16,9 @@ function HomePage() {
             <ImageList images={images} />
         </div>
     ) : (
-        <div>LOADING...</div>
+        <div className={s.homePage}>
+            <div className={s.loading}>LOADING...</div>
+        </div>
     )
 }
 
