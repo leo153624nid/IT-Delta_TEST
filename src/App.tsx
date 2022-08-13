@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react'
@@ -14,15 +16,21 @@ function App() {
     // Получаем данные при загрузке страницы
     useEffect(() => {
         // Т.к. в задании не предполагается изменение или получение user'a,
-        // то передается пустая строка вместо userId
-        userDataAPI.getUserData('').then((data) => {
-            dispatch(
-                setUser({
-                    userName: 'Ricardo Cooper',
-                    images: [...data],
-                })
-            )
-        })
+        // то передается пустая строка вместо userId а пользователь задается хардкодом
+        userDataAPI
+            .getUserData('')
+            .then((data) => {
+                dispatch(
+                    setUser({
+                        userName: 'Ricardo Cooper',
+                        images: [...data],
+                    })
+                )
+            })
+            .catch((error) => {
+                console.log(error)
+                alert('Данные не получены')
+            })
     }, [dispatch])
     return (
         <div className={s.App}>
