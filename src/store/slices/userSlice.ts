@@ -2,15 +2,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface InitState {
-    email: string | null
-    token: string | null
-    id: string | null
+    userName: string | null
 }
 
 const initialState: InitState = {
-    email: null,
-    token: null,
-    id: null,
+    userName: 'Ricardo Cooper',
 }
 
 const userSlice = createSlice({
@@ -18,14 +14,10 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser(state, action: PayloadAction<InitState>) {
-            state.email = action.payload.email
-            state.token = action.payload.token
-            state.id = action.payload.id
+            state.userName = action.payload.userName
         },
         removeUser(state) {
-            state.email = null
-            state.token = null
-            state.id = null
+            state.userName = null
         },
     },
 })
