@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -26,6 +27,14 @@ function Modal({ active, setActive }: ModalProps) {
             >
                 <img src={imageData.url} alt="full img" className={s.img} />
 
+                <div className={s.comments}>
+                    {imageData.comments.map((item) => (
+                        <span key={item.id}>
+                            <i>{item.text}</i>
+                        </span>
+                    ))}
+                </div>
+
                 <section className={s.section}>
                     <form>
                         <div className={s.field}>
@@ -33,10 +42,11 @@ function Modal({ active, setActive }: ModalProps) {
                                 <div className={s.label}>
                                     <span>Comment</span>
                                 </div>
-                                <div className={s.textArea}>
-                                    <textarea cols={30} rows={10}>
-                                        111
-                                    </textarea>
+                                <div>
+                                    <textarea
+                                        className={s.textArea}
+                                        autoFocus
+                                    />
                                 </div>
                             </div>
                             <div className={s.helpText}>
