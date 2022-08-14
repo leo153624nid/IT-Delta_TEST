@@ -1,21 +1,15 @@
 @import '../../common/stylesConst.scss';
 
-.cell {
-    width: 33%;
-    margin-bottom: 20px;
-}
-
 .card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex: 1;
     padding: 0px;
     gap: 8px;
 
     width: 100%;
     height: 244px;
-
-    flex: 1;
 
     &:hover {
         animation: anim-shadow 0.4s ease-in-out forwards;
@@ -40,6 +34,9 @@
     order: 0;
     align-self: stretch;
     flex-grow: 1;
+    @media (max-width: 550px) {
+        width: 331.33px;
+    }
 }
 
 .details {

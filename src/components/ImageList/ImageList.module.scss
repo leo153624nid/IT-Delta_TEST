@@ -11,6 +11,9 @@
     width: 100%;
     margin-top: 46px;
     gap: 1%;
+    @media (max-width: 992px) {
+        justify-content: center;
+    }
 }
 
 .cell {
