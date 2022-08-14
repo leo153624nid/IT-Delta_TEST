@@ -2,8 +2,9 @@
 
 .homePage {
     background: $color_backgrond;
-    width: 100%;
+    max-width: $max_width_container;
     min-height: 100vh;
+    padding: 15px;
 }
 
 .loading {
