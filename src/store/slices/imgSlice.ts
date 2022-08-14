@@ -36,11 +36,9 @@ const imgSlice = createSlice({
             state.imageData.comments = action.payload.imageData.comments
         },
         clearImageData(state) {
-            state.imageData = {
-                id: 0,
-                url: '',
-                comments: [],
-            }
+            state.imageData.id = 0
+            state.imageData.url = ''
+            state.imageData.comments = []
         },
     },
 })
