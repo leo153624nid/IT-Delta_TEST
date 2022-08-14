@@ -33,9 +33,16 @@ const imgSlice = createSlice({
         setImageData(state, action: PayloadAction<InitState>) {
             state.imageData = action.payload.imageData
         },
+        clearImageData(state) {
+            state.imageData = {
+                id: 0,
+                url: '',
+                comments: [],
+            }
+        },
     },
 })
 
-export const { setImageData } = imgSlice.actions
+export const { setImageData, clearImageData } = imgSlice.actions
 
 export default imgSlice.reducer

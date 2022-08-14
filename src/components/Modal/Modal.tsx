@@ -4,7 +4,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
-import { useAppSelector } from '../../store/hooks/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks'
+import { clearImageData } from '../../store/slices/imgSlice'
 import s from './Modal.module.scss'
 
 interface ModalProps {
@@ -14,12 +15,16 @@ interface ModalProps {
 }
 
 function Modal({ active, setActive }: ModalProps) {
+    const dispatch = useAppDispatch()
     const { imageData } = useAppSelector((state) => state.image)
     return imageData.id ? (
         // Если данные получены
         <div
             className={active ? `${s.modal} ${s.active}` : `${s.modal}`}
-            onClick={() => setActive(false)}
+            onClick={() => {
+                setActive(false)
+                dispatch(clearImageData())
+            }}
         >
             <div
                 className={active ? `${s.content} ${s.active}` : `${s.content}`}
