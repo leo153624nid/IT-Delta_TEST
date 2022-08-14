@@ -1,11 +1,14 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react'
+import React, { useState } from 'react'
+import userDataAPI from '../../api/userDataAPI'
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks'
-import { clearImageData } from '../../store/slices/imgSlice'
+import { clearImageData, postImageComment } from '../../store/slices/imgSlice'
 import s from './Modal.module.scss'
 
 interface ModalProps {
@@ -14,9 +17,54 @@ interface ModalProps {
     setActive: (active: boolean) => void
 }
 
+// Получение текущей даты в мс
+export const getNowDateMS = () => {
+    const now = new Date()
+    return now.getTime()
+}
+
 function Modal({ active, setActive }: ModalProps) {
     const dispatch = useAppDispatch()
     const { imageData } = useAppSelector((state) => state.image)
+
+    // Контролируемый инпут
+    const [value, setValue] = useState('')
+    const onChangeText = (e: { target: { value: string } }) => {
+        setValue(e.target.value)
+    }
+
+    // Отправляем коммент
+    const postComment = (imageId: number, text: string) => {
+        const comment = {
+            id: imageData.comments.length
+                ? imageData.comments.at(-1).id + 1
+                : 1,
+            text,
+            date: getNowDateMS(),
+        }
+        userDataAPI
+            .postImageComment(imageId, comment)
+            .then((data) => {
+                console.dir(data)
+            })
+            .catch(() => {
+                // Т.к. сервер не сохраняет данные и всегда получаем ошибку 400,
+                // то здесь имитируется успешное добавление поста и сохраннение в state
+                // console.dir(error)
+                // alert('Данные не были отправлены')
+                dispatch(
+                    postImageComment({
+                        imageData: {
+                            id: imageData.id,
+                            url: imageData.url,
+                            comments: [comment],
+                        },
+                    })
+                )
+                setValue('')
+            })
+    }
+
     return imageData.id ? (
         // Если данные получены
         <div
@@ -51,6 +99,8 @@ function Modal({ active, setActive }: ModalProps) {
                                     <textarea
                                         className={s.textArea}
                                         autoFocus
+                                        value={value}
+                                        onChange={(e) => onChangeText(e)}
                                     />
                                 </div>
                             </div>
@@ -64,7 +114,12 @@ function Modal({ active, setActive }: ModalProps) {
                 </section>
 
                 <div className={s.btn}>
-                    <span className={s.btnText}>Save</span>
+                    <span
+                        className={s.btnText}
+                        onClick={() => postComment(imageData.id, value)}
+                    >
+                        Save
+                    </span>
                 </div>
             </div>
         </div>

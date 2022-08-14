@@ -1,4 +1,7 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import axios from 'axios'
+import { Comment } from '../store/slices/imgSlice'
 
 const axiosInstance = axios.create({
     baseURL: 'https://boiling-refuge-66454.herokuapp.com/images',
@@ -15,12 +18,14 @@ const userDataAPI = {
             .get(`/${imageId}`)
             .then((response) => response.data)
     },
-    // Обновить или добавить машину
-    // patchUserCar(userId, car, index) {
-    //     return axiosInstance.patch(`${userId}/userCars/${index}.json`, {
-    //         ...car,
-    //     })
-    // },
+    // Добавить комментарий
+    postImageComment(imageId: number, comment: Comment) {
+        return axiosInstance
+            .post(`/${imageId}/comments`, {
+                comment,
+            })
+            .then((response) => response.data)
+    },
     // Удалить машину
     // deleteUserCar(userId, index) {
     //     return axiosInstance.delete(`${userId}/userCars/${index}.json`)

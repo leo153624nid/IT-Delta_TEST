@@ -40,9 +40,13 @@ const imgSlice = createSlice({
             state.imageData.url = ''
             state.imageData.comments = []
         },
+        postImageComment(state, action: PayloadAction<InitState>) {
+            state.imageData.comments.push(action.payload.imageData.comments[0])
+        },
     },
 })
 
-export const { setImageData, clearImageData } = imgSlice.actions
+export const { setImageData, clearImageData, postImageComment } =
+    imgSlice.actions
 
 export default imgSlice.reducer
