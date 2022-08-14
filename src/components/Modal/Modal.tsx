@@ -34,6 +34,7 @@ function Modal({ active, setActive }: ModalProps) {
         setValue(e.target.value)
     }
 
+    // Перерисовка при изменении доступности кнопки когда меняется поле инпута
     useEffect(() => {
         if (value) {
             setIsEmpty(false)
@@ -44,10 +45,11 @@ function Modal({ active, setActive }: ModalProps) {
 
     // Отправляем коммент
     const postComment = (imageId: number, text: string) => {
+        const newId = imageData.comments.length
+            ? imageData.comments[imageData.comments.length - 1].id + 1
+            : 1
         const comment = {
-            id: imageData.comments.length
-                ? imageData.comments.at(-1).id + 1
-                : 1,
+            id: newId,
             text,
             date: getNowDateMS(),
         }
@@ -81,6 +83,7 @@ function Modal({ active, setActive }: ModalProps) {
             onClick={() => {
                 setActive(false)
                 dispatch(clearImageData())
+                setValue('')
             }}
         >
             <div
