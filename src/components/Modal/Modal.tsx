@@ -5,7 +5,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import userDataAPI from '../../api/userDataAPI'
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks'
 import { clearImageData, postImageComment } from '../../store/slices/imgSlice'
@@ -29,9 +29,18 @@ function Modal({ active, setActive }: ModalProps) {
 
     // Контролируемый инпут
     const [value, setValue] = useState('')
+    const [isEmpty, setIsEmpty] = useState(true)
     const onChangeText = (e: { target: { value: string } }) => {
         setValue(e.target.value)
     }
+
+    useEffect(() => {
+        if (value) {
+            setIsEmpty(false)
+        } else {
+            setIsEmpty(true)
+        }
+    }, [value])
 
     // Отправляем коммент
     const postComment = (imageId: number, text: string) => {
@@ -113,14 +122,14 @@ function Modal({ active, setActive }: ModalProps) {
                     </form>
                 </section>
 
-                <div className={s.btn}>
-                    <span
-                        className={s.btnText}
-                        onClick={() => postComment(imageData.id, value)}
-                    >
-                        Save
-                    </span>
-                </div>
+                <button
+                    className={isEmpty ? `${s.btn} ${s.disabled}` : s.btn}
+                    type="button"
+                    disabled={isEmpty}
+                    onClick={() => postComment(imageData.id, value)}
+                >
+                    <span className={s.btnText}>Save</span>
+                </button>
             </div>
         </div>
     ) : (
