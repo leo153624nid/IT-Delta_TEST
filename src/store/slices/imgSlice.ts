@@ -31,7 +31,9 @@ const imgSlice = createSlice({
     initialState,
     reducers: {
         setImageData(state, action: PayloadAction<InitState>) {
-            state.imageData = action.payload.imageData
+            state.imageData.id = action.payload.imageData.id
+            state.imageData.url = action.payload.imageData.url
+            state.imageData.comments = action.payload.imageData.comments
         },
         clearImageData(state) {
             state.imageData = {
