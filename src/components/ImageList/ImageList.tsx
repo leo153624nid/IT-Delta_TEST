@@ -56,8 +56,8 @@ function ImageList({ images }: ImageListProps) {
     ))
     return (
         <div className={s.imageList}>
-            <Modal active={modalActive} setActive={setModalActive} />
             {imagesList}
+            <Modal active={modalActive} setActive={setModalActive} />
         </div>
     )
 }

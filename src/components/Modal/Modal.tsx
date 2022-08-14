@@ -107,7 +107,7 @@ function Modal({ active, setActive }: ModalProps) {
                                 <div className={s.label}>
                                     <span>Comment</span>
                                 </div>
-                                <div>
+                                <div className={s.input}>
                                     <textarea
                                         className={s.textArea}
                                         autoFocus

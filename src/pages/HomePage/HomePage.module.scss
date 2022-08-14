@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    flex: 1;
+    // flex: 1;
 }
 
 .loading {
@@ -25,3 +25,19 @@
     align-items: center;
     text-align: center;
 }
+
+// @media (max-width: 1398px) {
+//     .homePage {
+//         max-width: 970px;
+//     }
+// }
+// @media (max-width: 992px) {
+//     .homePage {
+//         max-width: 750px;
+//     }
+// }
+// @media (max-width: 767px) {
+//     .homePage {
+//         max-width: none;
+//     }
+// }

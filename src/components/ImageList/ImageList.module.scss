@@ -1,12 +1,19 @@
 @import '../../common/stylesConst.scss';
 
 .imageList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    height: 100%;
     padding: 0px;
-    gap: 32px;
 
-    position: relative;
-    width: 1358px;
+    width: 100%;
     margin-top: 46px;
+    gap: 1%;
+}
+
+.cell {
+    // width: 33%;
+    margin-bottom: 20px;
 }
