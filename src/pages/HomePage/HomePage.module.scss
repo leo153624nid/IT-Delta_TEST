@@ -4,6 +4,11 @@
     background: $color_backgrond;
     max-width: $max_width_container;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
 }
 
 .loading {
