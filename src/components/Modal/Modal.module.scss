@@ -3,7 +3,7 @@
 .modal {
     height: 100vh;
     width: 100vw;
-    background: rgba(107, 114, 128, 0.75);
+    background: $color_backgrond_modal;
     position: fixed;
     top: 0;
     left: 0;
@@ -30,18 +30,25 @@
     max-width: 692px;
     min-height: 706px;
 
-    background: #ffffff;
+    background: $color_white;
     box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
         0px 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-radius: 8px;
 
-    // flex: 1;
     order: 0;
 
     transform: scale(0.5);
     transition: 0.4s all;
     &.active {
         transform: scale(1);
+    }
+    @media (max-width: 767px) {
+        max-width: 492px;
+        min-height: 506px;
+    }
+    @media (max-width: 550px) {
+        max-width: 300px;
+        min-height: 250px;
     }
 }
 
@@ -54,6 +61,14 @@
 
     flex: 1;
     order: 0;
+    @media (max-width: 767px) {
+        max-width: 450px;
+        min-height: 300px;
+    }
+    @media (max-width: 550px) {
+        max-width: 300px;
+        min-height: 250px;
+    }
 }
 
 .comments {
@@ -62,7 +77,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #374151;
+    color: $color_grey700;
 
     display: flex;
     flex-direction: row;
@@ -121,6 +136,12 @@
     order: 0;
     align-self: stretch;
     flex-grow: 1;
+    @media (max-width: 767px) {
+        width: 450px;
+    }
+    @media (max-width: 550px) {
+        width: 300px;
+    }
 }
 
 .label {
@@ -132,7 +153,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #374151;
+    color: $color_grey700;
 
     flex: none;
     order: 0;
@@ -149,8 +170,8 @@
     height: 105px;
     overflow: auto;
 
-    background: #ffffff;
-    border: 1px solid #d1d5db;
+    background: $color_white;
+    border: 1px solid $color_beige;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
 
@@ -171,8 +192,8 @@
     width: 67px;
     height: 38px;
 
-    background: #4f46e5;
-    border-color: #4f46e5;
+    background: $color_violet;
+    border-color: $color_violet;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
 
@@ -194,7 +215,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #ffffff;
+    color: $color_white;
 
     flex: none;
     order: 0;

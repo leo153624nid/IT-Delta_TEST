@@ -4,11 +4,10 @@ $color_grey500: #6b7280;
 $color_grey700: #374151;
 $color_grey900: #111827;
 $color_white: #ffffff;
+$color_beige: #d1d5db;
+$color_violet: #4f46e5;
 $color_backgrond: #e5e5e5;
-
-// $font_size_norm: 15px;
-// $font_size_large: 24px;
-// $font_size_min: 12px;
+$color_backgrond_modal: rgba(107, 114, 128, 0.749);
 
 // widths % breakpoints
 $min_width: 320px;
@@ -18,7 +17,3 @@ $md1: $max_width_container + 20px;
 $md2: 991.98px;
 $md3: 767.98px;
 $md4: 479.98px;
-
-// высота инпутов и кнопок
-// $btn_height_norm: 50px;
-// $btn_height_min: 40px;

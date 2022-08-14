@@ -71,7 +71,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
-    color: #111827;
+    color: $color_grey900;
     @media (max-width: 550px) {
         font-size: 14px;
         line-height: 22px;
@@ -93,7 +93,6 @@
 
 .btn {
     box-sizing: border-box;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -104,8 +103,8 @@
     width: 119px;
     height: 38px;
 
-    background: #ffffff;
-    border: 1px solid #d1d5db;
+    background: $color_white;
+    border: 1px solid $color_beige;
     border-radius: 6px;
 
     flex: none;
@@ -154,7 +153,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #374151;
+    color: $color_grey700;
     @media (max-width: 550px) {
         font-size: 10px;
     }
